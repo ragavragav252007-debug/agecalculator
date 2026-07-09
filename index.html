@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Calculator — How far around the sun?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <main class="page">
+
+    <header class="intro">
+      <span class="eyebrow">Solar orbits completed</span>
+      <h1>How far around<br />the sun have you gone?</h1>
+      <p class="sub">Enter a birth date. We'll count every orbit, month, week, day and heartbeat since.</p>
+    </header>
+
+    <section class="panel" aria-label="Age calculator">
+      <form class="input-row" id="ageForm" autocomplete="off">
+        <div class="field">
+          <label for="birthdate">Date of birth</label>
+          <input type="date" id="birthdate" name="birthdate" required />
+        </div>
+        <div class="field">
+          <label for="attime">As of</label>
+          <input type="date" id="attime" name="attime" />
+        </div>
+        <button type="submit" class="cta">Calculate</button>
+      </form>
+
+      <p class="error" id="error" role="alert" hidden></p>
+
+      <div class="result" id="result" hidden>
+
+        <div class="headline">
+          <span class="age-number" id="ageYears">0</span>
+          <div class="age-unit-wrap">
+            <span class="age-unit">years old</span>
+            <span class="age-fine" id="ageFine">0 months, 0 days</span>
+          </div>
+        </div>
+
+        <div class="orbit-track" aria-hidden="true">
+          <svg viewBox="0 0 600 40" class="orbit-svg" id="orbitSvg" preserveAspectRatio="none">
+            <line x1="4" y1="20" x2="596" y2="20" class="orbit-line" />
+          </svg>
+          <div class="orbit-fill" id="orbitFill"></div>
+          <div class="orbit-marker" id="orbitMarker" title="Today"></div>
+        </div>
+        <p class="orbit-caption" id="orbitCaption">— % of the way to the next birthday</p>
+
+        <dl class="stat-grid" id="statGrid">
+          <div class="stat">
+            <dt>Months</dt>
+            <dd id="statMonths">0</dd>
+          </div>
+          <div class="stat">
+            <dt>Weeks</dt>
+            <dd id="statWeeks">0</dd>
+          </div>
+          <div class="stat">
+            <dt>Days</dt>
+            <dd id="statDays">0</dd>
+          </div>
+          <div class="stat">
+            <dt>Hours</dt>
+            <dd id="statHours">0</dd>
+          </div>
+          <div class="stat">
+            <dt>Minutes</dt>
+            <dd id="statMinutes">0</dd>
+          </div>
+          <div class="stat">
+            <dt>Next birthday</dt>
+            <dd id="statNext">—</dd>
+          </div>
+        </dl>
+
+        <p class="footnote" id="bornOn"></p>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>Built with a plain date field and honest arithmetic.</span>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
